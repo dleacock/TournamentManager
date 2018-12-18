@@ -1,11 +1,33 @@
 import java.io.*;
 
 public class TournamentManager implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     private Tournament tournament;
 
     public TournamentManager(){
 
+    }
+
+    public void addTeam(Team newTeam){
+        tournament.addTeam(newTeam);
+    }
+
+    public void scheduleMatch(Team team1, Team team2){
+        tournament.scheduleMatch(team1, team2);
+    }
+
+    public void enterResults(int matchNumber, int finalScore, String winningTeam){
+        tournament.enterResults(matchNumber, finalScore, winningTeam);
+
+    }
+
+    public String getTournamentName(){
+        return tournament.getTournamentName();
+    }
+
+    public void printTournament(){
+        tournament.printTournament();
     }
 
     public void createTournament(String tournamentName){

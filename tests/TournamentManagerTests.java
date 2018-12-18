@@ -56,18 +56,18 @@ public class TournamentManagerTests {
 
         System.out.println("***** NEW TOURNAMENT ADDING TWO TEAMS AND RESULTS ****");
 
-        tournamentManager.getTournament().addTeam(team1);
-        tournamentManager.getTournament().addTeam(team2);
+        tournamentManager.addTeam(team1);
+        tournamentManager.addTeam(team2);
 
-        tournamentManager.getTournament().scheduleMatch(team1, team2);
-        tournamentManager.getTournament().enterResults(1, 6, team1.getTeamName());
+        tournamentManager.scheduleMatch(team1, team2);
+        tournamentManager.enterResults(1, 6, team1.getTeamName());
 
         tournamentManager.writeOut();
 
-        File savedFile = new File(tournamentManager.getTournament().getTournamentName() + ".out");
+        File savedFile = new File(tournamentManager.getTournamentName() + ".out");
         Assert.assertTrue(savedFile.isFile());
 
-        tournamentManager.getTournament().printTournament();
+        tournamentManager.printTournament();
         System.out.println("***************************************");
     }
 
@@ -75,7 +75,7 @@ public class TournamentManagerTests {
     public void testLoadingTournament() {
         System.out.println("***** LOADING OLD TOURNAMENT AND PRINT RESULTS ****");
         tournamentManager.readFile("Test.out");
-        tournamentManager.getTournament().printTournament();
+        tournamentManager.printTournament();
         System.out.println("***************************************");
     }
 
